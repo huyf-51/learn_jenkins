@@ -11,7 +11,7 @@ const User = new mongoose.Schema({
     user: { type: String },
     pass: { type: String },
 });
-
+console.log('test');
 const UserModel = mongoose.model('User', User);
 
 app.get('/', async (req, res) => {
