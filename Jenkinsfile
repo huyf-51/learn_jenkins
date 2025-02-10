@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         nodejs 'nodejs-tool'
-        sonarScanner 'sonarscan'
+        sonarScanner 'hudson.plugins.sonar.SonarRunnerInstallation'
     }
 
     stages {
