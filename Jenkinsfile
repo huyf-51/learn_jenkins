@@ -13,6 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm run test'
+                sh 'sonar-scanner -D sonar.token=sqp_f0acb5c83ade634d86ad64491802efbf030f1294'
             }
         }
         stage('Deploy') {
