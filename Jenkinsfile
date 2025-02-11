@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'npm run test'
                 withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner 
+                    sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
