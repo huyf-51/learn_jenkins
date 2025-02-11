@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     tools {
         nodejs 'nodejs-tool'
     }
@@ -23,11 +23,8 @@ pipeline {
             }
         }
         stage('Deploy') {
-            environment {
-                dockerHome = tool 'docker'
-            }
             steps {
-                sh '${dockerHome}/bin/docker build -t huyfst/learn-jenkins .'
+                sh '/docker build -t huyfst/learn-jenkins .'
             }
         }
     }
