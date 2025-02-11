@@ -22,8 +22,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+            environment {
+                dockerHome = tool 'docker'
+            }
             steps {
-                sh 'docker build -t huyfst/learn-jenkins .'
+                sh '${dockerHome}/bin/docker build -t huyfst/learn-jenkins .'
             }
         }
     }
