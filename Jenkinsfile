@@ -25,7 +25,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'docker build -t huyfst/learn-jenkins .'
-                // sh ''
             }
         }
     }
