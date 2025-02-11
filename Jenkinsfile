@@ -15,10 +15,13 @@ pipeline {
             }
         }
         stage('Test') {
+            environment {
+                scannerHome = tool 'sonarscan'
+            }
             steps {
                 sh 'npm run test'
                 withSonarQubeEnv('sonarqube') {
-                    sh "sonar-scanner \
+                    sh "${scannerHome}/bin/sonar-scanner \
                         -Dsonar.token=$SONAR_TOKEN"
                 }
             }
