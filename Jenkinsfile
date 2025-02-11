@@ -2,7 +2,6 @@ pipeline {
     agent any
     tools {
         nodejs 'nodejs-tool'
-        maven 'maven'
     }
 
     environment {
@@ -16,9 +15,17 @@ pipeline {
             }
         }
         stage('Test') {
+            environment {
+                scannerHome = tool 'Sonar'
+            }
             steps {
                 sh 'npm run test'
-                sh 'sonar-scanner -D sonar.token=$SONAR_TOKEN'
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.token=$SONAR_TOKEN"
+                    }
+                }
             }
         }
         stage('Deploy') {
