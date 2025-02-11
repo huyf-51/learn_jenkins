@@ -16,12 +16,12 @@ pipeline {
         }
         stage('Test') {
             environment {
-                scannerHome = tool 'Sonar'
+                scannerHome = tool 'sonarqube'
             }
             steps {
                 sh 'npm run test'
                 script {
-                    withSonarQubeEnv('Sonar') {
+                    withSonarQubeEnv('sonarqube') {
                         sh "${scannerHome}/bin/sonar-scanner \
                             -Dsonar.token=$SONAR_TOKEN"
                     }
