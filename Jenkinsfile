@@ -21,8 +21,7 @@ pipeline {
             steps {
                 sh 'npm run test'
                 withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.token=${SONAR_TOKEN}"
+                    sh "${scannerHome}/bin/sonar-scanner 
                 }
             }
         }
