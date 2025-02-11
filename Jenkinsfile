@@ -22,12 +22,9 @@ pipeline {
                 // }
             }
         }
-        
         stage('Deploy') {
             steps {
-                script {
-                    dockerImage = docker.build("huyfst/jenkins")
-                }
+                sh 'docker build -t huyfst/learn-jenkins .'
             }
         }
     }
