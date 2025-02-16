@@ -1,10 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:20-alpine'
-        }
-    }
-
+    agent any
+    
     tools {
         nodejs 'nodejs-tool'
     }
