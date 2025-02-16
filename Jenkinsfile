@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker { 
+            label 'docker'
+         }
+    }
 
     tools {
         nodejs 'nodejs-tool'
