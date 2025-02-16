@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         nodejs 'nodejs-tool'
-        DockerTool 'docker'
+        dockerTool 'docker'
     }
 
     stages {
@@ -28,6 +28,6 @@ pipeline {
                 sh 'docker build -t huyfst/learn-jenkins .'
             }
         }
-        
+
     }
 }
