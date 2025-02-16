@@ -28,5 +28,6 @@ pipeline {
                 sh 'docker build -t huyfst/learn-jenkins .'
             }
         }
+        
     }
 }
