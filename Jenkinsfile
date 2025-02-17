@@ -7,7 +7,7 @@ pipeline {
     // }
 
     stages {
-        
+
         // stage('Build 1') {
         //     steps {
         //         sh 'npm install'
@@ -26,7 +26,7 @@ pipeline {
         // }
         stage('Deploy') {
             steps {
-                sh 'docker build -t huyfst/learn-jenkins .'
+                bat 'docker build -t huyfst/learn-jenkins .'
             }
         }
     }
