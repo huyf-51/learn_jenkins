@@ -26,6 +26,7 @@ pipeline {
                 bat 'docker build -t huyfst/learn-jenkins .'
                 bat 'docker login -u huyfst -p %DOCKER_PASS%'
                 bat 'docker push huyfst/learn-jenkins'
+                bat 'trivy image huyfst/learn-jenkins'
             }
         }
 
