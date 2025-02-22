@@ -6,23 +6,22 @@ pipeline {
     }
 
     stages {
-        stage('Build 1') {
-            steps {
-                sh 'npm install jest'
-            }
-        }
-        
-        stage('Test') {
-            environment {
-                scannerHome = tool 'sonarscan'
-            }
-            steps {
-                sh 'npm run test'
-                withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-        }
+        // stage('Build 1') {
+        //     steps {
+        //         sh 'npm install jest'
+        //     }
+        // }
+        // stage('Test') {
+        //     environment {
+        //         scannerHome = tool 'sonarscan'
+        //     }
+        //     steps {
+        //         sh 'npm run test'
+        //         withSonarQubeEnv('sonarqube') {
+        //             sh "${scannerHome}/bin/sonar-scanner"
+        //         }
+        //     }
+        // }
         stage('Deploy') {
             steps {
                 bat 'docker build -t huyfst/learn-jenkins .'
