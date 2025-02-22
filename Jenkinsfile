@@ -27,6 +27,7 @@ pipeline {
             }
             steps {
                 bat 'docker build -t huyfst/learn-jenkins .'
+                bat 'echo $DOCKER_PASS'
                 bat 'docker login -u huyfst -p $DOCKER_PASS'
                 bat 'docker push huyfst/learn-jenkins'
             }
