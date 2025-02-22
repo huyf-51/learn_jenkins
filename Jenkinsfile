@@ -5,21 +5,21 @@ pipeline {
         nodejs 'nodejs'
     }
     stages {
-        stage('Build 1') {
+        stage('Test') {
             steps {
                 bat 'npm install jest'
+                bat 'npm run test'
             }
         }
-        stage('Test') {
+        stage('Sonar scan') {
             // environment {
             //     scannerHome = tool 'sonarscan'
             // }
-            steps {
-                bat 'npm run test'
+            // steps {
             //     withSonarQubeEnv('sonarqube') {
             //         bat "${scannerHome}/bin/sonar-scanner"
             //     }
-            }
+            // }
         }
         stage('Deploy') {
             environment {
@@ -29,6 +29,7 @@ pipeline {
                 bat 'docker build -t huyfst/learn-jenkins .'
                 bat 'docker login -u huyfst -p %DOCKER_PASS%'
                 bat 'docker push huyfst/learn-jenkins'
+                bat 'trivy image huyfst/learn-jenkins'
             }
         }
 
