@@ -11,7 +11,7 @@ pipeline {
                 bat 'npm run test'
             }
         }
-        stage('Sonar scan') {
+        // stage('Sonar scan') {
             // environment {
             //     scannerHome = tool 'sonarscan'
             // }
@@ -20,7 +20,7 @@ pipeline {
             //         bat "${scannerHome}/bin/sonar-scanner"
             //     }
             // }
-        }
+        // }
         stage('Deploy') {
             environment {
                 DOCKER_PASS = credentials("docker_token")
