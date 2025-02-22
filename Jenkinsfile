@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'nodejs'
-    }
     stages {
         stage('Test') {
             steps {
@@ -29,7 +26,6 @@ pipeline {
                 bat 'docker build -t huyfst/learn-jenkins .'
                 bat 'docker login -u huyfst -p %DOCKER_PASS%'
                 bat 'docker push huyfst/learn-jenkins'
-                bat 'go'
             }
         }
 
