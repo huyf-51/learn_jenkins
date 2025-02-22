@@ -11,15 +11,15 @@ pipeline {
             }
         }
         stage('Test') {
-            environment {
-                scannerHome = tool 'sonarscan'
-            }
-            // steps {
-            //     bat 'npm run test'
+            // environment {
+            //     scannerHome = tool 'sonarscan'
+            // }
+            steps {
+                bat 'npm run test'
             //     withSonarQubeEnv('sonarqube') {
             //         bat "${scannerHome}/bin/sonar-scanner"
             //     }
-            // }
+            }
         }
         stage('Deploy') {
             environment {
