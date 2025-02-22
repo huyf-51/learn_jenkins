@@ -11,6 +11,7 @@ pipeline {
                 sh 'npm install jest'
             }
         }
+        
         stage('Test') {
             environment {
                 scannerHome = tool 'sonarscan'
