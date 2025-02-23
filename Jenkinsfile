@@ -29,7 +29,6 @@ pipeline {
                 bat 'trivy image huyfst/learn-jenkins'
             }
         }
-        
     }
 }
 
